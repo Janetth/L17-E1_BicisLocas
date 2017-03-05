@@ -4,7 +4,7 @@
 
 .form-container {
   height: 100vh;
-  padding-top: 40px;
+  padding-top: 0px;
   padding-bottom: 40px;
   display: block;
   position: relative;
@@ -20,8 +20,8 @@
   top: 0;
   left: 0;
   bottom: 0;
-  right: 0;  
-  z-index: -1;   
+  right: 0;
+  z-index: -1;
 }
 
 #form-signup-heading{
@@ -74,4 +74,10 @@
 .btn-primary, .btn-primary:hover{
   background-color: #333;
   border-color: #333;
+}
+
+.form-span {
+  color: #610B0B ;
+  font-size: 14px;
+
 }
