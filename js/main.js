@@ -1,4 +1,4 @@
-function validateForm(event){
+function validateForm(){
 	 /* Escribe tú código aquí */
       var name = document.getElementById("name").value;
       var nameError = document.getElementById("nameError");
@@ -14,9 +14,18 @@ function validateForm(event){
       var camposO = document.getElementsByClassName("form-span")
 
 
-      if (name.length == 0 ||lastname.length == 0||email.length ==0||password.length == 0){
+      if (name.length == 0 || lastname.length == 0 || email.length ==0 || password.length == 0){
         alert ("Ingresa tus datos en todos los campos obligatorios");
         return false;
+      }
+      if (name.length != 0 && lastname.length != 0 && email.length !=0 && password.length != 0){
+        if(tipobici == 0 ) {
+          tipobiciError.innerHTML = "Selecciona tu tipo de Bici";
+          alert ("Selecciona tu tipo de Bici");
+          return false;
+        }else{
+          tipobiciError.innerHTML = "";
+        }
       }
       if(!(/^([A-ZÁÉÍÓÚ]{1}[a-zñáéíóú]+[\s]*)+$/.test(name))) {
         nameError.innerHTML = "Utilice solo letras (el primer caracter debe ser mayúscula)";
@@ -48,16 +57,6 @@ function validateForm(event){
         emailError.innerHTML = "";
       }
 
-      if(tipobici == 0 ) {
-        tipobiciError.innerHTML = "Selecciona tu tipo de Bici";
-        document.getElementById("tipobici").value="";
-        document.getElementById("tipobici").focus();
-        alert ("Selecciona tu tipo de Bici");
-        return false;
-      }else{
-        tipobiciError.innerHTML = "";
-      }
-
       if(password.length < 6 ) {
         passwordError.innerHTML = "Ingresa un password con al menos 6 caracteres";
         document.getElementById("input-password").value="";
@@ -76,13 +75,12 @@ function validateForm(event){
         return false;
       }else{
         passwordError.innerHTML = "";
-
       }
 
       form1.reset();
-      alert ("Gracias.\nSus Datos han sido ingresados correctamente");
+      alert ("Gracias. Sus Datos han sido ingresados correctamente");
       for (var i = 0; i < camposO.length; i++) {
-        camposO[i].innerHTML ="(*)Campos Obligatorios";
+        camposO[i].innerHTML ="(*)Campo Obligatorio.";
       }
-    return false;
+      return false;
 }
